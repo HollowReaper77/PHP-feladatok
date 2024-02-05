@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
-     require_once("env.php");
-     require_once("database.php");
+     require("env.php");
+     require("database.php");
      $db = new db($dbhost, $dbname, $dbuser, $dbpass);
 ?>
 <html lang="hu">

@@ -5,7 +5,7 @@
     $dbpass = '';
     $table = 'skills';
     
-    $title = 'Skills';
+    $title = 'Skills App';
     $author = '5/13.szoft';
     $company = 'Bajai SZC Türr István Technikum';
 
