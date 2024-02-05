@@ -1,0 +1,27 @@
+body{
+    background-color: silver;
+}
+
+header{
+    background-color: slategray;
+    color: white;
+    text-align: center;
+    text-shadow: 0 0 3px black;
+    font-size: 200%;
+    padding: 20px;
+}
+
+footer{
+    background-color: black;
+    color: white;
+    text-align: center;
+    letter-spacing: 3px;
+    font-size: 80%;
+    padding: 10px;
+}
+
+.container{
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 0 10px gray;
+}
