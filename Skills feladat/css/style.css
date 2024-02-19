@@ -26,7 +26,14 @@ footer{
     box-shadow: 0 0 10px gray;
 }
 
-.inputForm{
-    margin-top: 5000px;
-    padding-bottom: 5000px;
+.table td a {
+    text-decoration: none;
+    color:  black;
+    padding-right: 10px;
+}
+
+.table tbody tr:hover > td{
+    cursor: pointer;
+    background-color: slategray;
+    color: white;
 }
