@@ -1,10 +1,12 @@
 <?php
+    // php osztály adatbázis kapcsolathoz (PDO-t használ -> php database object)
     class db {
 
         public $conn;
         private $results;
         private $fields;
 
+        // konstruktor
         public function __construct($dbhost, $dbname, $dbuser, $dbpass){
             try 
             {
@@ -19,10 +21,11 @@
             }
         }
 
+        // destruktor, nem használjuk
         public function __destruct(){
         }
 
-        // SELECT
+        // SELECT művelet esetés
         public function query($sql) {
            // $this->fields = $this->conn->query("DESCRIBE hamburgerek")->fetchAll(PDO::FETCH_COLUMN);
             $this->results = $this->conn->query($sql)->fetchAll(); 
@@ -32,15 +35,16 @@
             return $this->results; 
         }
 
-        // INSERT, UPDATE, DELETE
+        // INSERT, UPDATE, DELETE művelet esetén
         public function execute($sql) {
             $this->results = $this->conn->exec($sql); 
         }
 
-        // Results to HTML table
+        // A lekérdezés eredményeinek megjelenítése egy formázott HTML táblázatban
         public function toTable($params) {
             /* 
-            
+            Paraméterezése: 
+
             i|c|u|d 
 
             i: info
@@ -107,7 +111,7 @@
            </table>';
         }
 
-        // Show recors information
+        // Egy rekord adatainak megjelenítése egy formázott HTML táblázatban
         public function showRecord(){
             echo '<table class="table table-hovered table-striped">
             <thead class="table-primary">
@@ -116,11 +120,19 @@
                     <th>Érték</th>
                 </tr>
             </thead>
-            <tbody>
-            </tbody>
+            <tbody>';
+        
+            foreach($this->fields as $field){
+                echo '<tr>
+                    <td class="fieldName">'.$field.'</td>
+                    <td>'.$this->results[0][$field].'</td>
+                </tr>';
+            }
+
+            echo '</tbody>
             <tfoot>
                 <tr>
-                    <td colspan="2">Összesen: 0 tulajdonság</td>
+                    <td colspan="2">Összesen: '.sizeOf($this->fields).' tulajdonság</td>
                 </tr>
             </tfoot>';
 

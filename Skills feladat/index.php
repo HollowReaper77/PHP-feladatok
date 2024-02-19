@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <?php
+    // behúzzuk a változókaz és az adatbázis osztályt
     require('env.php');
     require('database.php');
+    // létrehozunk egy adatbázis objektumot, amin keresztül végezzük majd a műveleteket
     $db = new db($dbhost, $dbname, $dbuser, $dbpass);
 ?>
 <html lang="hu">
@@ -16,27 +18,40 @@
 </head>
 <body>
     <div class="container">
-        <header>
+        <header class="mb-3">
             <h1><?php echo $title ?></h1>
         </header>
         
         <section>
             <?php 
+                // url alapján eldönti, hogy mit tölt be ebbe a div-be, a különböző CRUD műveletek php fájljait
                 include('loader.php');
             ?>
         </section>
         
         <main>
             <?php
+                // lekérdezzük a táblában lévő adatokat
                 $db->query('SELECT * FROM skills'); 
+                // majd beletesszük egy táblázatba őket. A create, info, update és delete műveletgombokat megjelenítjük
                 $db->toTable('c|i|u|d');
             ?>
         </main>
         <footer>
-            <?php echo $author.' - '.$company; ?>
+            <?php 
+                // a láblécben kiíratjuk a szerző infokat
+                echo $author.' - '.$company;
+            ?>
         </footer>
     </div>
 
     <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
+
+<?php
+    /*
+    $_SESSION['uid'] = 1;
+    unset($_SESSION['uid']);
+    */
+?>
