@@ -3,7 +3,7 @@
     // átvesszük az url-ből az id értékét
     $id = $_GET['id'];
     // lekérdezzük a megadott id-jű rekordot
-    $db->query('SELECT * FROM skills WHERE ID='.$id);
+    $db->query('SELECT * FROM garancia WHERE ID='.$id);
     // megjelenítjük az adatait
     $db->showRecord();
 

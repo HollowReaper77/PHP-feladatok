@@ -8,25 +8,38 @@
             Add meg a nevet!
         </div>';
     }else{
-        $db->execute("UPDATE skills SET name='".$_POST['name']."', skills='".$_POST['skills']."' WHERE ID=".$id);
+        $db->execute("UPDATE gra SET name='".$_POST['item']."', garancia='".$_POST['garancia']."' WHERE ID=".$id);
         echo '<div class="alert alert-success" role="alert">
         Sikeres módosítás!
         </div>';
     }
 }
 
-   $result = $db->query('SELECT * FROM skills WHERE ID='.$id)[0];
+   $result = $db->query('SELECT * FROM garancia WHERE ID='.$id)[0];
    echo '
    <form method="post">
-   
+
    <div class="form-floating mb-3">
-       <input type="text" class="form-control" id="name" name="name" placeholder="" value="'.$result['name'].'">
-       <label for="name">Name</label>
-   </div>
-   <div class="form-floating mb-3">
-       <textarea class="form-control" placeholder="Write a skills..." id="skills" name="skills">'.$result['skills'].'</textarea>
-       <label for="skills">Skills</label>
-   </div>
+   <input type="text" class="form-control" id="item" name="item" placeholder="" value="'.$result['item'].'">
+   <label for="item">Item</label>
+    </div>
+
+    <div class="form-floating mb-3">
+    <input type="number" class="form-control" id="ar" name="ar" placeholder="">
+    <label for="ar">Ár</label>
+    </div>
+
+    <div class="form-floating mb-3">
+    <input type="date" class="form-control" id="vasarlasideje" name="vasarlasideje" placeholder="">
+    <label for="vasarlasideje">Vasárlás ideje</label>
+    </div>
+
+    <div class="form-floating mb-3">
+    <input type="date" class="form-control" id="garanciaido" name="garanciaido" placeholder="">
+    <label for="garanciaido">Garancia idő</label>
+    </div>
+
+
    <input type="submit" value="Submit" name="update" class="btn btn-primary mb-3">
    <a href="index.php" class="btn btn-secondary mb-3">Mégsem</a>
    </form>';
