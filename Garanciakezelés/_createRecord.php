@@ -1,6 +1,6 @@
 <?php
     if (isset($_POST['add'])){
-        if (empty($_POST['name'])){
+        if (empty($_POST['item'])){
             echo '<div class="alert alert-danger" role="alert">
                 Add meg a nevet!
             </div>';
