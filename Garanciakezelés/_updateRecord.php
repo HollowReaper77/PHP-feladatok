@@ -3,12 +3,12 @@
    $id = @$_GET['id'];
 
    if (isset($_POST['update'])){
-    if (empty($_POST['name'])){
+    if (empty($_POST['item'])){
         echo '<div class="alert alert-danger" role="alert">
             Add meg a nevet!
         </div>';
     }else{
-        $db->execute("UPDATE garancia SET name='".$_POST['item']."', '".$_POST['ar']."', '".$_POST['vasarlasideje']."', '".$_POST['garanciaido']."' WHERE ID=".$id);
+        $db->execute("UPDATE garancia SET item='".$_POST['item']."', ar='".$_POST['ar']."', vasarlasideje='".$_POST['vasarlasideje']."', garanciaido='".$_POST['garanciaido']."' WHERE ID=".$id);
         //$db->execute("INSERT INTO garancia VALUES(null, '".$_POST['item']."', '".$_POST['ar']."', '".$_POST['vasarlasideje']."', '".$_POST['garanciaido']."')");
         echo '<div class="alert alert-success" role="alert">
         Sikeres módosítás!
