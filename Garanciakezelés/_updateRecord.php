@@ -8,7 +8,8 @@
             Add meg a nevet!
         </div>';
     }else{
-        $db->execute("UPDATE gra SET name='".$_POST['item']."', garancia='".$_POST['garancia']."' WHERE ID=".$id);
+        $db->execute("UPDATE garancia SET name='".$_POST['item']."', '".$_POST['ar']."', '".$_POST['vasarlasideje']."', '".$_POST['garanciaido']."' WHERE ID=".$id);
+        //$db->execute("INSERT INTO garancia VALUES(null, '".$_POST['item']."', '".$_POST['ar']."', '".$_POST['vasarlasideje']."', '".$_POST['garanciaido']."')");
         echo '<div class="alert alert-success" role="alert">
         Sikeres módosítás!
         </div>';

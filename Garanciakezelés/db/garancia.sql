@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2024. Feb 26. 12:15
+-- Létrehozás ideje: 2024. Feb 26. 13:06
 -- Kiszolgáló verziója: 10.4.6-MariaDB
 -- PHP verzió: 7.3.8
 
@@ -33,8 +33,15 @@ CREATE TABLE `garancia` (
   `item` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
   `ar` int(11) NOT NULL,
   `vasarlasideje` date NOT NULL,
-  `garanciaido` int(11) NOT NULL
+  `garanciaido` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `garancia`
+--
+
+INSERT INTO `garancia` (`ID`, `item`, `ar`, `vasarlasideje`, `garanciaido`) VALUES
+(1, 'asd', 321312, '2024-02-27', '2024-04-30');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -54,7 +61,7 @@ ALTER TABLE `garancia`
 -- AUTO_INCREMENT a táblához `garancia`
 --
 ALTER TABLE `garancia`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
